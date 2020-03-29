@@ -7,12 +7,13 @@ import BuildControl from "./BuildControl/BuildControl";
 const controls = [
   { label: "Salad", type: "salad" },
   { label: "Bacon", type: "bacon" },
-  { label: "cheese", type: "cheese" },
+  { label: "Cheese", type: "cheese" },
   { label: "Meat", type: "meat" }
 ];
 
 const buildControls = props => (
   <div className={classes.BuildControls}>
+    <div className={classes.Title}>Add ingredients</div>
     {controls.map(index => {
       return (
         <BuildControl
@@ -24,6 +25,9 @@ const buildControls = props => (
         />
       );
     })}
+    <div className={classes.Price}>
+      Total Price: <strong>{props.price.toFixed(2)} €</strong>
+    </div>
   </div>
 );
 

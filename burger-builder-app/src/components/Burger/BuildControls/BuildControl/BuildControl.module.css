@@ -8,9 +8,10 @@
 .BuildControl button {
   display: block;
   font: inherit;
+  font-weight: bold;
   padding: 5px;
   margin: 0 5px;
-  width: 80px;
+  width: 40px;
   border: 1px solid #aa6817;
   cursor: pointer;
   outline: none;
@@ -30,9 +31,13 @@
 }
 
 .Label {
-  padding: 10px;
+  padding: 5px;
+  margin: 0 5px;
   font-weight: bold;
+  border: 1px solid black;
+  background-color: #f9f5f5;
   width: 80px;
+  text-align: center;
 }
 
 .Counter {
@@ -41,6 +46,7 @@
   font-weight: bold;
   width: 20px;
   border: 1px solid black;
+  background-color: #f9f5f5;
   text-align: center;
 }
 
