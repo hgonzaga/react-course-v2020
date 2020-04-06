@@ -8,13 +8,12 @@ const controls = [
   { label: "Salad", type: "salad" },
   { label: "Bacon", type: "bacon" },
   { label: "Cheese", type: "cheese" },
-  { label: "Meat", type: "meat" }
+  { label: "Meat", type: "meat" },
 ];
 
-const buildControls = props => (
+const buildControls = (props) => (
   <div className={classes.BuildControls}>
-    <div className={classes.Title}>Add ingredients</div>
-    {controls.map(index => {
+    {controls.map((index) => {
       return (
         <BuildControl
           key={index.label}

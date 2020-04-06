@@ -1,20 +1,12 @@
 .BuildControls {
   width: 100%;
-  background-color: #27742d;
+  background: linear-gradient(#f4d004, #e4b007);
   display: flex;
   flex-flow: column;
   align-items: center;
   box-shadow: 0 2px 1px #ccc;
   margin: auto;
   padding: 10px 0;
-}
-
-.Title {
-  padding: 10px 0;
-  margin-bottom: 10px;
-  color: #f9f5f5;
-  font-size: 30px;
-  font-weight: bold;
 }
 
 .Price {
