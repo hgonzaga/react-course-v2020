@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Aux from "../../hoc/Auxiliary";
+import Aux from "../../hoc/Auxiliary/Auxiliary";
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
@@ -10,7 +10,7 @@ const INGREDIENTS_PRICES = {
   salad: 0.5,
   bacon: 0.7,
   cheese: 0.4,
-  meat: 1.3
+  meat: 1.3,
 };
 
 class BurgerBuilder extends Component {
@@ -19,14 +19,14 @@ class BurgerBuilder extends Component {
       salad: 0,
       bacon: 0,
       cheese: 0,
-      meat: 0
+      meat: 0,
     },
     totalPrice: 3,
     purchasable: false,
-    purchasing: false
+    purchasing: false,
   };
 
-  addIngredientHandler = type => {
+  addIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount + 1;
 
@@ -38,12 +38,12 @@ class BurgerBuilder extends Component {
 
     this.setState({
       ingredients: updatedIngredients,
-      totalPrice: oldPrice + priceAddition
+      totalPrice: oldPrice + priceAddition,
     });
     this.updatePurchaseState(updatedIngredients);
   };
 
-  removeIngredientHandler = type => {
+  removeIngredientHandler = (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount > 0 ? oldCount - 1 : 0;
 
@@ -55,16 +55,16 @@ class BurgerBuilder extends Component {
 
     this.setState({
       ingredients: updatedIngredients,
-      totalPrice: oldPrice - ingredientPrice
+      totalPrice: oldPrice - ingredientPrice,
     });
     this.updatePurchaseState(updatedIngredients);
   };
 
-  updatePurchaseState = updatedIngredients => {
+  updatePurchaseState = (updatedIngredients) => {
     const ingredients = { ...updatedIngredients };
 
     const sum = Object.keys(ingredients)
-      .map(igKey => {
+      .map((igKey) => {
         return ingredients[igKey];
       })
       .reduce((sum, el) => {
