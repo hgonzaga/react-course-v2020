@@ -21,6 +21,7 @@ const buildControls = (props) => (
           added={() => props.ingredientsAdded(index.type)}
           removed={() => props.ingredientsRemoved(index.type)}
           ingredientCount={props.ingredients[index.type]}
+          disabled={props.disabled[index.type]}
         />
       );
     })}
