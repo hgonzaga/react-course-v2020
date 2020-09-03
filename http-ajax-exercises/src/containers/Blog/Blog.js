@@ -1,20 +1,14 @@
 import React, { Component } from "react";
 
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 
-import Posts from "./Posts/Posts";
 import "./Blog.css";
+import Posts from "./Posts/Posts";
 import NewPost from "./NewPost/NewPost";
 
 class Blog extends Component {
   state = {
-    posts: [],
-    selectedPostId: null,
-    error: false,
-  };
-
-  postSelectedHandler = (id) => {
-    this.setState({ selectedPostId: id });
+    auth: true,
   };
 
   render() {
@@ -24,17 +18,41 @@ class Blog extends Component {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  to="/posts"
+                  exact
+                  activeClassName="active" //redundant
+                  activeStyle={{
+                    color: "#fa923f",
+                    textDecoration: "underline",
+                  }}
+                >
+                  Posts
+                </NavLink>
               </li>
               <li>
-                <Link to="/new-post">New Post</Link>
+                <NavLink
+                  to={{
+                    pathname: "/new-post",
+                    hash: "#submit",
+                    search: "?quick-submit=true",
+                  }}
+                >
+                  New Post
+                </NavLink>
               </li>
             </ul>
           </nav>
         </header>
         {/* <Route path="/" exact render={() => <Posts />} /> */}
-        <Route path="/" exact component={Posts} />
-        <Route path="/new-post" exact component={NewPost} />
+        <Switch>
+          {this.state.auth ? (
+            <Route path="/new-post" component={NewPost} />
+          ) : null}
+          <Route path="/posts" component={Posts} />
+          <Route render={() => <h1>Not found</h1>} />
+          {/* <Redirect from="/" to="/posts" /> */}
+        </Switch>
       </div>
     );
   }
