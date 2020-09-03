@@ -4,3 +4,29 @@ body {
   font-family: sans-serif;
   text-align: center;
 }
+
+header {
+  width: 100%;
+  margin-bottom: 30px;
+  background-color: black;
+}
+
+header ul {
+  list-style: none;
+}
+
+header li {
+  display: inline-block;
+  margin: 20px;
+}
+
+.App a {
+  color: white;
+  text-decoration: none;
+}
+
+.App a:hover,
+.App a:active,
+.App a.active {
+  color: blueviolet;
+}
